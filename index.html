@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahil - Software Engineer</title>
+  <meta name="description" content="Mohd Sahil - Software Engineer building scalable systems, AI products & cloud platforms.">
+  <meta name="theme-color" content="#050816">
+  <link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23050816'/><text x='32' y='42' font-size='30' text-anchor='middle' fill='%234F9DFF' font-family='monospace'>S_</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- ============ BOOT SCREEN ============ -->
+  <div id="boot" aria-hidden="true">
+    <div class="boot-inner">
+      <pre id="bootLog" class="boot-log"></pre>
+      <div class="boot-bar"><span id="bootBarFill"></span></div>
+      <p class="boot-hint">sahil.sys - initializing</p>
+    </div>
+  </div>
+
+  <!-- ============ CHROME ============ -->
+  <div id="scrollProgress" aria-hidden="true"></div>
+  <div id="cursorDot" aria-hidden="true"></div>
+  <div id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="#top" data-cmd="home">
+      <span class="logo-mark">S<span class="logo-cursor">_</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#systems">Systems</a>
+      <a href="#github">GitHub</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <button id="accentBtn" class="icon-btn" title="Switch accent theme (T)" aria-label="Switch accent theme">
+        <span class="accent-dot"></span>
+      </button>
+      <button id="soundBtn" class="icon-btn" title="Ambient sound (M)" aria-label="Toggle ambient sound">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path class="snd-wave" d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+      </button>
+      <button id="paletteBtn" class="kbd-hint" title="Command palette">⌘K</button>
+      <button id="menuBtn" class="icon-btn menu-btn" aria-label="Menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+    <a href="#experience">Experience</a><a href="#systems">Systems</a><a href="#github">GitHub</a><a href="#contact">Contact</a>
+  </div>
+
+  <!-- ============ COMMAND PALETTE ============ -->
+  <div id="palette" class="palette" role="dialog" aria-modal="true" aria-label="Command palette" hidden>
+    <div class="palette-panel glass">
+      <div class="palette-head">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="paletteInput" type="text" placeholder="Type a command or search…" autocomplete="off" spellcheck="false">
+        <kbd>esc</kbd>
+      </div>
+      <ul id="paletteList" class="palette-list"></ul>
+      <div class="palette-foot"><kbd>↑↓</kbd> navigate <kbd>↵</kbd> select</div>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <canvas id="rainCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <canvas id="netCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-orbs" aria-hidden="true">
+        <div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div>
+      </div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="float-snippets" aria-hidden="true">
+        <pre class="snippet s1"><code><span class="tk">const</span> scale = <span class="tf">await</span> deploy({ replicas: <span class="tn">12</span> })</code></pre>
+        <pre class="snippet s2"><code>kubectl rollout status deploy/api <span class="tc">- ok ✓</span></code></pre>
+        <pre class="snippet s3"><code><span class="tk">@Transactional</span> <span class="tf">public</span> State next(Event e)</code></pre>
+        <pre class="snippet s4"><code>embeddings = model.encode(docs) <span class="tc"># 1536-d</span></code></pre>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow reveal"><span class="pulse-dot"></span> Available for interesting problems</p>
+        <h1 class="hero-title">
+          <span class="line reveal">Hi, I'm <span class="grad-text">Sahil</span>.</span>
+          <span class="line reveal d1">Software Engineer building <span class="hl">scalable&nbsp;systems</span>,</span>
+          <span class="line reveal d2"><span class="hl-2">AI products</span> &amp; <span class="hl-3">cloud platforms</span>.</span>
+        </h1>
+        <p class="hero-type reveal d3">$ whoami <span aria-hidden="true">→</span> <span id="typed" class="typed"></span><span class="caret"></span></p>
+        <div class="hero-ctas reveal d4">
+          <a href="#projects" class="btn btn-primary" data-magnet>
+            <span>View my work</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost" data-magnet><span>Get in touch</span></a>
+          <button class="btn btn-ghost btn-kbd" data-open-palette><span>Explore</span><kbd>⌘K</kbd></button>
+        </div>
+        <div class="hero-meta reveal d5">
+          <span class="meta-chip">Java · Spring Boot</span>
+          <span class="meta-chip">AWS · CDK</span>
+          <span class="meta-chip">LLM Pipelines</span>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about">
+      <div class="section-head io">
+        <p class="section-kicker">01 / About</p>
+        <h2 class="section-title">Systems thinker,<br><span class="grad-text">production shipper.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-visual io">
+          <div class="orbit-wrap" id="orbitWrap">
+            <div class="orbit-ring r1" aria-hidden="true"></div>
+            <div class="orbit-ring r2" aria-hidden="true"></div>
+            <div class="pfp-frame">
+              <img src="assets/profile.png" alt="Portrait of Mohd Sahil" loading="lazy" width="240" height="240">
+              <div class="pfp-scan" aria-hidden="true"></div>
+            </div>
+            <div class="orbiter o1" style="--ang:0deg"   title="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" loading="lazy"></div>
+            <div class="orbiter o1" style="--ang:120deg" title="Spring"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="" loading="lazy"></div>
+            <div class="orbiter o1" style="--ang:240deg" title="AWS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="" loading="lazy"></div>
+            <div class="orbiter o2" style="--ang:60deg"  title="Docker"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" loading="lazy"></div>
+            <div class="orbiter o2" style="--ang:180deg" title="PostgreSQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" loading="lazy"></div>
+            <div class="orbiter o2" style="--ang:300deg" title="TypeScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" loading="lazy"></div>
+          </div>
+          <canvas id="sphereCanvas" width="220" height="220" aria-hidden="true"></canvas>
+        </div>
+
+        <div class="about-copy io d1">
+          <p>I'm a <strong>Software Development Engineer</strong> at <a href="https://prosperr.io/" target="_blank" rel="noopener">Prosperr.io</a>, where I design and ship <strong>backend microservices</strong>, <strong>AWS infrastructure automation</strong>, and <strong>AI-assisted document pipelines</strong> that power critical financial workflows.</p>
+          <p>My happy place: taking an ambiguous product problem, breaking it into clean state machines and APIs, and walking it all the way to production. Day-to-day that means <strong>Java &amp; Spring Boot</strong> on the service side, <strong>AWS (ECS Fargate, Lambda, CDK)</strong> underneath.</p>
+          <p>Off the clock I grind DSA (700+ solved) and tinker with distributed-systems and LLM side projects.</p>
+
+          <div class="stat-row">
+            <div class="stat"><span class="stat-num" data-count="70" data-suffix="%">0</span><span class="stat-label">faster infra setup</span></div>
+            <div class="stat"><span class="stat-num" data-count="30" data-suffix="%">0</span><span class="stat-label">AWS cost cut</span></div>
+            <div class="stat"><span class="stat-num" data-count="4" data-suffix="x">0</span><span class="stat-label">doc parsing lift</span></div>
+            <div class="stat"><span class="stat-num" data-count="700" data-suffix="+">0</span><span class="stat-label">DSA problems</span></div>
+          </div>
+        </div>
+
+        <div class="about-radar io d2">
+          <h3 class="mini-title">// capability radar</h3>
+          <canvas id="radarCanvas" width="340" height="300"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section skills" id="skills">
+      <div class="circuit-bg" aria-hidden="true"></div>
+      <div class="section-head io">
+        <p class="section-kicker">02 / Skills</p>
+        <h2 class="section-title">The <span class="grad-text">toolbox</span>.</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card io" style="--tint: var(--primary)">
+          <div class="skill-head"><span class="skill-icon">⌥</span><h3>Backend</h3></div>
+          <ul><li>Java</li><li>Spring Boot</li><li>Python</li><li>Node.js</li></ul>
+          <div class="skill-bar"><span style="--w:95%"></span></div>
+        </div>
+        <div class="skill-card io d1" style="--tint: var(--accent)">
+          <div class="skill-head"><span class="skill-icon">☁</span><h3>Cloud</h3></div>
+          <ul><li>AWS</li><li>ECS</li><li>Lambda</li><li>RDS</li><li>S3</li><li>CloudFront</li></ul>
+          <div class="skill-bar"><span style="--w:90%"></span></div>
+        </div>
+        <div class="skill-card io d2" style="--tint: var(--purple)">
+          <div class="skill-head"><span class="skill-icon">⎈</span><h3>DevOps</h3></div>
+          <ul><li>Docker</li><li>Kubernetes</li><li>GitHub Actions</li><li>Terraform</li><li>CDK</li></ul>
+          <div class="skill-bar"><span style="--w:85%"></span></div>
+        </div>
+        <div class="skill-card io" style="--tint: var(--green)">
+          <div class="skill-head"><span class="skill-icon">⛁</span><h3>Databases</h3></div>
+          <ul><li>PostgreSQL</li><li>Redis</li><li>MongoDB</li><li>Trino</li><li>Neo4j</li></ul>
+          <div class="skill-bar"><span style="--w:85%"></span></div>
+        </div>
+        <div class="skill-card io d1" style="--tint: var(--purple)">
+          <div class="skill-head"><span class="skill-icon">✳</span><h3>AI</h3></div>
+          <ul><li>OpenAI</li><li>LangChain</li><li>Vector DBs</li><li>RAG</li><li>Embeddings</li><li>LLMs</li></ul>
+          <div class="skill-bar"><span style="--w:80%"></span></div>
+        </div>
+        <div class="skill-card io d2" style="--tint: var(--primary)">
+          <div class="skill-head"><span class="skill-icon">▣</span><h3>Frontend</h3></div>
+          <ul><li>React</li><li>Next.js</li><li>TypeScript</li></ul>
+          <div class="skill-bar"><span style="--w:70%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section projects" id="projects">
+      <div class="section-head io">
+        <p class="section-kicker">03 / Projects</p>
+        <h2 class="section-title">Things I've <span class="grad-text">shipped</span>.</h2>
+      </div>
+      <div class="project-grid">
+
+        <article class="project-card io" data-tilt>
+          <div class="pc-glow" aria-hidden="true"></div>
+          <div class="pc-media" aria-hidden="true">
+            <div class="pc-art art-deskpet">
+              <div class="pixel-cat"></div>
+              <span class="art-win"></span><span class="art-win w2"></span>
+            </div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top"><h3>DeskPet</h3><span class="tag tag-live">Shipped · macOS &amp; Win</span></div>
+            <p class="pc-stack">Electron · Canvas · Node · electron-builder</p>
+            <p>Pixel-cat desktop pet living as transparent always-on-top overlay. Follows cursor, reacts to typing, runs Pomodoro reminders - and celebrates when your agentic IDE finishes. Procedural pixel art, no sprites.</p>
+            <div class="pc-actions">
+              <a class="btn btn-mini" href="https://notsahill.github.io/projects/deskpet/#" target="_blank" rel="noopener">Live Demo ↗</a>
+              <a class="btn btn-mini btn-ghost" href="https://github.com/notsahill" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card io d1" data-tilt>
+          <div class="pc-glow" aria-hidden="true"></div>
+          <div class="pc-media" aria-hidden="true">
+            <div class="pc-art art-conduit">
+              <span class="cq q1"></span><span class="cq q2"></span><span class="cq q3"></span>
+              <span class="cflow f1"></span><span class="cflow f2"></span>
+            </div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top"><h3>Conduit</h3><span class="tag tag-wip">In Development</span></div>
+            <p class="pc-stack">Distributed Systems · Event Sourcing · Workers · Postgres</p>
+            <p>Self-hosted workflow orchestration engine - lightweight Temporal analogue built from first principles. Durable state, retries with backoff, DLQs, idempotent execution, saga compensation, crash recovery via event sourcing.</p>
+            <div class="pc-actions">
+              <a class="btn btn-mini btn-ghost" href="https://github.com/notsahill" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card io" data-tilt>
+          <div class="pc-glow" aria-hidden="true"></div>
+          <div class="pc-media" aria-hidden="true">
+            <div class="pc-art art-reimb">
+              <span class="state-node n1">RECEIVED</span><span class="state-node n2">VALIDATED</span><span class="state-node n3">SETTLED</span>
+              <svg class="state-path" viewBox="0 0 300 60" preserveAspectRatio="none"><path d="M20 30 H 280" /></svg>
+            </div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top"><h3>Reimbursement Microservice</h3><span class="tag">@ Prosperr.io</span></div>
+            <p class="pc-stack">Java · Spring Boot · PostgreSQL · SQS · ECS Fargate</p>
+            <p>End-to-end backend service powering reimbursement transaction processing - API contracts, state-machine workflows, async event handling, production rollout.</p>
+          </div>
+        </article>
+
+        <article class="project-card io d1" data-tilt>
+          <div class="pc-glow" aria-hidden="true"></div>
+          <div class="pc-media" aria-hidden="true">
+            <div class="pc-art art-cdk">
+              <span class="stack-layer l1">ALB</span><span class="stack-layer l2">ECS · Fargate</span><span class="stack-layer l3">CDK synth ▸ deploy</span>
+            </div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top"><h3>CDK Deployment Automation</h3><span class="tag">@ Prosperr.io</span></div>
+            <p class="pc-stack">AWS CDK · TypeScript · ECS Fargate · ALB · CloudWatch</p>
+            <p>Standardized infra provisioning and blue-green deployments as code. New-service setup time down <strong>70%</strong>; manual ECS/ALB configuration gone.</p>
+          </div>
+        </article>
+
+        <article class="project-card io" data-tilt>
+          <div class="pc-glow" aria-hidden="true"></div>
+          <div class="pc-media" aria-hidden="true">
+            <div class="pc-art art-payslip">
+              <span class="doc-sheet"></span>
+              <span class="doc-beam"></span>
+              <span class="doc-json">{ "net_pay": ✓ }</span>
+            </div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top"><h3>Payslip Extraction Pipeline</h3><span class="tag">@ Prosperr.io</span></div>
+            <p class="pc-stack">AWS Textract · OpenAI · Java · S3</p>
+            <p>OCR + LLM-assisted structured extraction. Parsing accuracy to <strong>85%</strong>, successful document processing up <strong>4x</strong>.</p>
+          </div>
+        </article>
+
+        <article class="project-card io d1" data-tilt>
+          <div class="pc-glow" aria-hidden="true"></div>
+          <div class="pc-media" aria-hidden="true">
+            <div class="pc-art art-andi">
+              <span class="chat-bub b1">how do I…</span>
+              <span class="chat-bub b2">⚡ streaming…</span>
+            </div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-top"><h3>ANDI-BOT</h3><span class="tag tag-win">5th / 80+ teams</span></div>
+            <p class="pc-stack">MERN · OpenAI APIs</p>
+            <p>Full-stack conversational platform with multi-turn context handling and low-latency request orchestration. 5th place at FinXThon.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section experience" id="experience">
+      <div class="section-head io">
+        <p class="section-kicker">04 / Experience</p>
+        <h2 class="section-title">The <span class="grad-text">timeline</span>.</h2>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <div class="tl-rail" aria-hidden="true"><span id="tlFill"></span></div>
+
+        <article class="tl-item io" data-expand>
+          <button class="tl-head" aria-expanded="false">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div>
+              <h3>Software Development Engineer <span class="tl-org">@ Prosperr.io</span></h3>
+              <p class="tl-period">Oct 2024 - Present · Bengaluru</p>
+            </div>
+            <span class="tl-chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="tl-body"><div class="tl-inner">
+            <ul class="tl-list">
+              <li>Owned end-to-end design + backend of the <strong>Reimbursement microservice</strong> - workflows, REST APIs, production rollout for transaction processing.</li>
+              <li>Designed <strong>state-machine driven workflows</strong> for the ITR filing journey; reliability up, manual intervention down across dependent services.</li>
+              <li>Automated ECS Fargate deployments with <strong>AWS CDK (TypeScript)</strong> - standardized provisioning + blue-green; setup time cut <strong>70%</strong>.</li>
+              <li>Cut AWS spend <strong>~30%</strong> via workload analysis and right-sizing.</li>
+              <li>Integrated <strong>Bolna.ai voice agents</strong> with backend workflows; CSR follow-up load down <strong>55%</strong>.</li>
+              <li>Revamped payslip pipeline with <strong>Textract + LLM extraction</strong> - accuracy to <strong>85%</strong>, parsing success <strong>4x</strong>.</li>
+            </ul>
+            <div class="tl-tech">
+              <span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>SQS</span><span>ECS Fargate</span><span>CDK</span><span>Textract</span><span>OpenAI</span>
+            </div>
+            <div class="tl-metrics">
+              <div><em>70%</em>faster setup</div><div><em>30%</em>cost saved</div><div><em>55%</em>CSR load cut</div><div><em>4x</em>parse rate</div>
+            </div>
+          </div></div>
+        </article>
+
+        <article class="tl-item io" data-expand>
+          <button class="tl-head" aria-expanded="false">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div>
+              <h3>SDE Intern <span class="tl-org">@ Prosperr.io</span></h3>
+              <p class="tl-period">Jul 2024 - Oct 2024</p>
+            </div>
+            <span class="tl-chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="tl-body"><div class="tl-inner">
+            <ul class="tl-list">
+              <li>Migrated auth from passwords to <strong>OTP-based flow</strong> - signup drop-offs down <strong>30%</strong>.</li>
+              <li>Built <strong>Puppeteer.js automation</strong> fetching ITR documents from government portals; manual uploads slashed.</li>
+            </ul>
+            <div class="tl-tech"><span>Node.js</span><span>Puppeteer</span><span>REST</span></div>
+          </div></div>
+        </article>
+
+        <article class="tl-item io" data-expand>
+          <button class="tl-head" aria-expanded="false">
+            <span class="tl-dot tl-dot-award" aria-hidden="true"></span>
+            <div>
+              <h3>Awards <span class="tl-org">@ Prosperr.io</span></h3>
+              <p class="tl-period">2024 - 2026</p>
+            </div>
+            <span class="tl-chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="tl-body"><div class="tl-inner">
+            <ul class="tl-list awards">
+              <li><strong>Top Achiever</strong> - high-impact backend delivery and ownership across production systems. <a href="https://www.linkedin.com/posts/md-sahil22_a-small-milestone-but-a-meaningful-one-ugcPost-7434621138149748737-gxfF" target="_blank" rel="noopener">post ↗</a></li>
+              <li><strong>Unsung Hero</strong> - behind-the-scenes reliability and operational improvements. <a href="https://www.linkedin.com/posts/md-sahil22_prosperring-ugcPost-7340793950208737282-b3xV" target="_blank" rel="noopener">post ↗</a></li>
+              <li><strong>Hidden Gem</strong> - AI-assisted automation initiatives across production workflows. <a href="https://www.linkedin.com/posts/md-sahil22_prosperr-ugcPost-7285688824494481408-vwzX" target="_blank" rel="noopener">post ↗</a></li>
+            </ul>
+          </div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ ARCHITECTURE / SYSTEMS ============ -->
+    <section class="section systems" id="systems">
+      <div class="section-head io">
+        <p class="section-kicker">05 / Systems</p>
+        <h2 class="section-title">Architecture, <span class="grad-text">interactive</span>.</h2>
+        <p class="section-sub">Click any node to inspect it. Packets are decorative. Mostly.</p>
+      </div>
+
+      <div class="sys-tabs io" role="tablist" aria-label="Architecture diagrams">
+        <button class="sys-tab active" data-diagram="micro" role="tab" aria-selected="true">Microservices</button>
+        <button class="sys-tab" data-diagram="aws" role="tab" aria-selected="false">AWS Infra</button>
+        <button class="sys-tab" data-diagram="ai" role="tab" aria-selected="false">AI Pipeline</button>
+        <button class="sys-tab" data-diagram="event" role="tab" aria-selected="false">Event-driven</button>
+      </div>
+
+      <div class="sys-stage glass io d1">
+        <div id="diagramHost" class="diagram-host"></div>
+        <aside id="nodeInfo" class="node-info">
+          <p class="ni-hint">◉ select a component</p>
+          <h4 id="niTitle"></h4>
+          <p id="niDesc"></p>
+        </aside>
+      </div>
+
+      <!-- Terminal -->
+      <div class="term glass io d2" id="terminal">
+        <div class="term-bar">
+          <span class="tdot td-r"></span><span class="tdot td-y"></span><span class="tdot td-g"></span>
+          <span class="term-title">sahil@prod: ~/systems - zsh</span>
+        </div>
+        <div class="term-screen" id="termScreen" tabindex="0" aria-label="Interactive terminal. Type help.">
+          <div id="termOut"></div>
+          <div class="term-line"><span class="term-ps1">➜</span><span id="termInput" class="term-in"></span><span class="caret term-caret"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GITHUB ============ -->
+    <section class="section github" id="github">
+      <div class="section-head io">
+        <p class="section-kicker">06 / GitHub</p>
+        <h2 class="section-title">Commit <span class="grad-text">telemetry</span>.</h2>
+      </div>
+
+      <div class="gh-grid">
+        <div class="gh-card glass io">
+          <h3 class="mini-title">// profile</h3>
+          <div class="gh-stats">
+            <div class="stat"><span class="stat-num" id="ghRepos" data-count="0">–</span><span class="stat-label">public repos</span></div>
+            <div class="stat"><span class="stat-num" id="ghFollowers" data-count="0">–</span><span class="stat-label">followers</span></div>
+            <div class="stat"><span class="stat-num" data-count="700" data-suffix="+">0</span><span class="stat-label">DSA solved</span></div>
+          </div>
+          <a class="btn btn-mini btn-ghost" href="https://github.com/notsahill" target="_blank" rel="noopener">@notsahill ↗</a>
+        </div>
+
+        <div class="gh-card glass io d1">
+          <h3 class="mini-title">// contributions</h3>
+          <canvas id="contribCanvas" height="120" aria-label="Stylized contribution activity graph"></canvas>
+        </div>
+
+        <div class="gh-card glass io d2">
+          <h3 class="mini-title">// languages</h3>
+          <div class="lang-bars">
+            <div class="lang"><span class="lang-name">Java</span><div class="lang-track"><span style="--w:38%;--c:#e76f51"></span></div><span class="lang-pct">38%</span></div>
+            <div class="lang"><span class="lang-name">TypeScript</span><div class="lang-track"><span style="--w:26%;--c:var(--primary)"></span></div><span class="lang-pct">26%</span></div>
+            <div class="lang"><span class="lang-name">Python</span><div class="lang-track"><span style="--w:16%;--c:var(--green)"></span></div><span class="lang-pct">16%</span></div>
+            <div class="lang"><span class="lang-name">JavaScript</span><div class="lang-track"><span style="--w:14%;--c:#f4d35e"></span></div><span class="lang-pct">14%</span></div>
+            <div class="lang"><span class="lang-name">C++</span><div class="lang-track"><span style="--w:6%;--c:var(--purple)"></span></div><span class="lang-pct">6%</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="mesh-bg" aria-hidden="true"></div>
+      <div class="section-head io">
+        <p class="section-kicker">07 / Contact</p>
+        <h2 class="section-title">Let's build something <span class="grad-text">worth deploying</span>.</h2>
+        <p class="section-sub">Inbox always open - opportunities, questions, or a simple hello.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="contact-form glass io" novalidate>
+          <div class="field">
+            <input id="cfName" type="text" name="name" required placeholder=" " autocomplete="name">
+            <label for="cfName">Name</label>
+            <span class="field-msg"></span>
+          </div>
+          <div class="field">
+            <input id="cfEmail" type="email" name="email" required placeholder=" " autocomplete="email">
+            <label for="cfEmail">Email</label>
+            <span class="field-msg"></span>
+          </div>
+          <div class="field">
+            <textarea id="cfMsg" name="message" rows="4" required placeholder=" "></textarea>
+            <label for="cfMsg">Message</label>
+            <span class="field-msg"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" data-magnet>
+            <span class="btn-label">Send message</span>
+            <span class="btn-sending">Transmitting…</span>
+            <span class="btn-sent">✓ Opens your mail client</span>
+          </button>
+        </form>
+
+        <div class="contact-side io d1">
+          <a class="contact-line" href="mailto:contactsahil.cs@gmail.com"><span class="cl-k">mail</span>contactsahil.cs@gmail.com</a>
+          <a class="contact-line" href="tel:+916307650739"><span class="cl-k">cell</span>+91 63076 50739</a>
+          <a class="contact-line" href="https://www.linkedin.com/in/md-sahil22/" target="_blank" rel="noopener"><span class="cl-k">in /</span>md-sahil22</a>
+          <a class="contact-line" href="https://github.com/notsahill" target="_blank" rel="noopener"><span class="cl-k">gh /</span>notsahill</a>
+          <a class="contact-line" href="https://leetcode.com/not_humorous/" target="_blank" rel="noopener"><span class="cl-k">lc /</span>not_humorous</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p class="footer-type">$ <span id="footerTyped"></span><span class="caret"></span></p>
+    <div class="footer-socials">
+      <a href="https://github.com/notsahill" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.69 5.38-5.25 5.67.41.35.78 1.05.78 2.12v3.14c0 .31.2.67.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+      <a href="https://www.linkedin.com/in/md-sahil22/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a>
+      <a href="https://leetcode.com/not_humorous/" target="_blank" rel="noopener" aria-label="LeetCode"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16.1 17.55a1.4 1.4 0 0 1 0 2l-1.42 1.4a5.17 5.17 0 0 1-7.28 0l-4.9-4.9a5.17 5.17 0 0 1 0-7.28L7.4 3.86a5.17 5.17 0 0 1 7.28 0l1.42 1.41a1.4 1.4 0 1 1-1.98 1.98L12.7 5.84a2.37 2.37 0 0 0-3.32 0L4.48 10.75a2.37 2.37 0 0 0 0 3.32l4.9 4.9a2.37 2.37 0 0 0 3.32 0l1.42-1.42a1.4 1.4 0 0 1 1.98 0ZM20.6 13.4H10.9a1.4 1.4 0 1 1 0-2.8h9.7a1.4 1.4 0 1 1 0 2.8Z"/></svg></a>
+      <a href="mailto:contactsahil.cs@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg></a>
+    </div>
+    <p class="footer-note">© 2026 Mohd Sahil · designed &amp; built by hand · <span class="footer-kbd">press <kbd>⌘K</kbd></span></p>
+  </footer>
+
+  <script src="js/effects.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
