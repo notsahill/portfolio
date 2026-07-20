@@ -521,7 +521,7 @@
       whoami: () => print(`Mohd Sahil - software engineer.\nBuilds <span class="t-ac">backend systems</span>, <span class="t-ac">AWS infra</span> and <span class="t-ac">LLM pipelines</span> @ Prosperr.io`),
       stack: () => print(`java · spring-boot · postgres · redis · sqs\naws{ecs,fargate,lambda,cdk} · docker · k8s\nopenai · langchain · pgvector`),
       uptime: () => print(`career:   <span class="t-ok">up 2+ years</span>, 0 unplanned outages of enthusiasm\nload avg: 0.70 <span class="t-dim">(faster infra)</span> 0.30 <span class="t-dim">(cheaper cloud)</span> 4.00 <span class="t-dim">(parse rate)</span>`),
-      projects: () => print(`deskpet/          <span class="t-ok">shipped</span>  - pixel cat desktop overlay\nconduit/          <span class="t-ac">wip</span>      - workflow orchestration engine\nreimbursement/    <span class="t-ok">prod</span>     - state-machine microservice\npayslip-ai/       <span class="t-ok">prod</span>     - textract + llm extraction`),
+      projects: () => print(`deskpet/          <span class="t-ok">shipped</span>  - pixel cat desktop overlay\nconduit/          <span class="t-ok">shipped</span>  - workflow orchestration engine\nreimbursement/    <span class="t-ok">prod</span>     - state-machine microservice\npayslip-ai/       <span class="t-ok">prod</span>     - textract + llm extraction`),
       contact: () => { print(`opening socket to <span class="t-ac">contactsahil.cs@gmail.com</span> …`); setTimeout(() => (location.href = "mailto:contactsahil.cs@gmail.com"), 700); },
       clear: () => { out.innerHTML = ""; },
       "sudo hire sahil": () => {
